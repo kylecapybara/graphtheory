@@ -9,16 +9,19 @@ message = "input sequence: " + str(inputSequence)
 print(message)
 
 # need to sort the seq after each iteration
-# since deg(v) = deg(u) is possible
+# since deg(v) = deg(u) is possible, and
+# this algo only works with a sorted sequence
 def sortB(array): 
     n = len(array) 
     for i in range(n):
       for j in range(0, n-i-1):
-        if array[j] < array[j+1] : 
+        if array[j] < array[j+1]: 
           array[j], array[j+1] = array[j+1], array[j]
     print(array)
   
-# plucks out largest degree, working
+# removes largest degree vertex from sequence
+# and removes all the vertexes the highest degree
+# vertex has edges connected to
 def rHD(array):
   for i in range(array[0]+1):
     array[i] = array[i] - 1
@@ -39,3 +42,4 @@ def gTest(array):
       break
 
 gTest(inputSequence)
+# expected output "graphical"
